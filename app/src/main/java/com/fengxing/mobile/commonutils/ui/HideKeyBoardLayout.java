@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 
 
 /**
- * 无效啊
+ * 是否显示了软键盘
  */
 public class HideKeyBoardLayout extends LinearLayout {
 
@@ -37,13 +37,6 @@ public class HideKeyBoardLayout extends LinearLayout {
         }else {
             Log.e("CommonLinearLayout","hide");
         }
-
-//        if (isShouldShowKeyBord(this)) {
-//
-//        } else {
-//            KeyBoardUtils.hideSoftInput(this);
-//            //KeyBoardUtils.openSoftInput(this.getContext());
-//        }
     }
 
     private boolean isShouldShowKeyBord(View rootView) {
