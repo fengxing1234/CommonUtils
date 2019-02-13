@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--点击旋转小火箭-->
+    <declare-styleable name="TestRotationRocket">
+        <attr name="imgSampleSize" format="integer" />
+        <attr name="duration" format="integer" />
+    </declare-styleable>
+
+</resources>

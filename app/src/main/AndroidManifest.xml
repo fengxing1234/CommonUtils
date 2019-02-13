@@ -19,6 +19,10 @@
         </activity>
         <activity android:name=".KeyBoardHideActivity" />
         <activity android:name=".BaseActivity" />
+
+
+        <!--test activity-->
+        <activity android:name=".test.TestDeleteListActivity" />
     </application>
 
 </manifest>

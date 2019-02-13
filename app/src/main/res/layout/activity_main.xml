@@ -2,16 +2,55 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_key_board_hide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="点击空白处键盘消失"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toLeftOf="@+id/btn_right_movie"
+        app:layout_constraintTop_toBottomOf="@id/tv_result" />
+
+    <Button
+        android:id="@+id/btn_right_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="计算"
+        app:layout_constraintBaseline_toBaselineOf="@id/btn_key_board_hide"
+        app:layout_constraintLeft_toRightOf="@id/btn_key_board_hide"
+        app:layout_constraintRight_toRightOf="@id/btn_new_page" />
+
+    <Button
+        android:id="@+id/btn_new_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新页面"
+        app:layout_constraintBaseline_toBaselineOf="@id/btn_key_board_hide"
+        app:layout_constraintLeft_toRightOf="@id/btn_right_movie"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_right_movie">
+
+        <com.fengxing.mobile.commonutils.test.CustomTestView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
