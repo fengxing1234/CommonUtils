@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.fengxing.mobile.commonutils.R;
+import com.fengxing.mobile.commonutils.utils.ViewUtils;
 
 public class DeleteListView extends ListView implements GestureDetector.OnGestureListener, View.OnTouchListener {
 
@@ -131,6 +132,10 @@ public class DeleteListView extends ListView implements GestureDetector.OnGestur
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+        int touchSlop = ViewUtils.getTouchSlop(getContext());
+        float[] velocityTracker = ViewUtils.getVelocityTracker(event);
+        Log.d(TAG, "onTouch: " + touchSlop);
+        Log.d(TAG, "velocityTracker X : " + velocityTracker[0] + "  velocityTracker Y = " + velocityTracker[1]);
         if (isDeleteShown) {
             itemLayout.removeView(deleteButton);
             deleteButton = null;

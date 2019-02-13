@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fengxing.mobile.commonutils.R;
@@ -24,15 +26,44 @@ public class TestDeleteListActivity extends AppCompatActivity {
     private List<String> contentList = new ArrayList<String>();
 
 
+    private LinearLayout layout;
+
+    private Button scrollToBtn;
+
+    private Button scrollByBtn;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //testDeleteList();
 
-        setContentView(R.layout.test_rotation_rocket_view);
+        //setContentView(R.layout.test_rotation_rocket_view);
 
+        setContentView(R.layout.test_scroller_layout_activity);
 
+        //testScrollTo();
+
+    }
+
+    private void testScrollTo() {
+        setContentView(R.layout.test_scroll_by_activity);
+        layout = (LinearLayout) findViewById(R.id.layout);
+        scrollToBtn = (Button) findViewById(R.id.scroll_to_btn);
+        scrollByBtn = (Button) findViewById(R.id.scroll_by_btn);
+        scrollToBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout.scrollBy(-60, -100);
+            }
+        });
+        scrollByBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layout.scrollBy(-30, -50);
+            }
+        });
     }
 
     private void testDeleteList() {

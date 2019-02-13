@@ -10,17 +10,17 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Scroller;
 
 import com.fengxing.mobile.commonutils.R;
-
-import java.util.EventListener;
-import java.util.concurrent.ThreadPoolExecutor;
-
-import javax.xml.parsers.FactoryConfigurationError;
+import com.fengxing.mobile.commonutils.utils.ViewUtils;
 
 public class TestRotationRocket extends View {
+
+    private static final String TAG = "TestRotationRocket";
 
     public static final int DEF_IMG_SAMPLE_SIZE = 30;
     public static final int DEF_DURATION = 500;
@@ -30,6 +30,7 @@ public class TestRotationRocket extends View {
     private int mBitmapHeight;
     private int mBitmapWidth;
     private Paint mPaint;
+    private Scroller mScroller;
 
     public TestRotationRocket(Context context) {
         this(context, null);
@@ -71,6 +72,11 @@ public class TestRotationRocket extends View {
         mBitmapWidth = mBitmap.getWidth();
         mBitmapHeight = mBitmap.getHeight();
         typedArray.recycle();
+
+        int touchSlop = ViewUtils.getTouchSlop(getContext());
+        Log.d(TAG, "touchSlop: " + touchSlop);
+
+        mScroller = new Scroller(getContext());
     }
 
     /**
@@ -138,5 +144,13 @@ public class TestRotationRocket extends View {
 
     public void startAnimation() {     //开始动画
         ObjectAnimator.ofFloat(this, "rotationX", 0.0f, 360.0f).setDuration(mDuration).start();
+    }
+
+    @Override
+    public void computeScroll() {
+        if (mScroller.computeScrollOffset()) {
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            postInvalidate();
+        }
     }
 }
