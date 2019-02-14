@@ -47,8 +47,21 @@ public class TestDeleteListActivity extends AppCompatActivity {
 
         //testScrollTo();
 
-        fakeBold();
+        //fakeBold();
 
+        testMoveImage(R.layout.test_move_image);
+
+    }
+
+    private void testMoveImage(int test_move_image) {
+        setContentView(test_move_image);
+        final TesMoveImageView moveImageView = (TesMoveImageView) findViewById(R.id.test_move_image);
+        findViewById(R.id.btn_bg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveImageView.setBackgroundColor(R.color.red);
+            }
+        });
     }
 
     private void fakeBold() {

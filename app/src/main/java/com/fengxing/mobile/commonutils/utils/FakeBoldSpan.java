@@ -5,6 +5,9 @@ import android.graphics.Paint;
 import android.text.TextPaint;
 import android.text.style.CharacterStyle;
 
+/**
+ * 加粗一点点
+ */
 public class FakeBoldSpan extends CharacterStyle {
 
     @Override
