@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Frame_Animation_Sound_play">
+        <item>@drawable/play1</item>
+        <item>@drawable/play2</item>
+        <item>@drawable/play3</item>
+    </array>
+</resources>

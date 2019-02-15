@@ -1,6 +1,7 @@
 package com.fengxing.mobile.commonutils.test;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -53,7 +54,6 @@ public class TestDeleteListActivity extends AppCompatActivity {
         //fakeBold();
 
         testMoveImage(R.layout.test_move_image);
-
     }
 
     private void testMoveImage(int test_move_image) {
@@ -63,17 +63,25 @@ public class TestDeleteListActivity extends AppCompatActivity {
          * 帧动画使用java
          */
         final AnimationDrawable animationDrawable = new AnimationDrawable();
-        for (int i = 1; i <= 3; i++) {
-            int identifier = getResources().getIdentifier("play" + i, "drawable", getPackageName());
-            Drawable drawable = getResources().getDrawable(identifier);
-            animationDrawable.addFrame(drawable, 500);
+//        for (int i = 1; i <= 3; i++) {
+//            int identifier = getResources().getIdentifier("play" + i, "drawable", getPackageName());
+//            Drawable drawable = getResources().getDrawable(identifier);
+//            animationDrawable.addFrame(drawable, 500);
+//        }
+
+        TypedArray ta = getResources().obtainTypedArray(R.array.Frame_Animation_Sound_play);
+        int length = ta.length();
+        for (int i = 0; i < length; i++) {
+            int resourceId = ta.getResourceId(i, 0);
+            animationDrawable.addFrame(getResources().getDrawable(resourceId), 400);
         }
+        ta.recycle();
 
         final TesMoveImageView moveImageView = (TesMoveImageView) findViewById(R.id.test_move_image);
         findViewById(R.id.btn_bg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveImageView.setBackgroundColor(R.color.red);
+                moveImageView.setBackgroundColor(getResources().getColor(R.color.red));
 
                 ImageView ivJava = findViewById(R.id.iv_sound_paly_java);
                 ivJava.setImageDrawable(animationDrawable);
@@ -92,6 +100,8 @@ public class TestDeleteListActivity extends AppCompatActivity {
         imageView.setBackground(getResources().getDrawable(R.drawable.drawable_test_sound_play));
         AnimationDrawable background = (AnimationDrawable) imageView.getBackground();
         background.start();
+
+
     }
 
     private void fakeBold() {
