@@ -1,6 +1,8 @@
 package com.fengxing.mobile.commonutils.test;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -55,13 +58,40 @@ public class TestDeleteListActivity extends AppCompatActivity {
 
     private void testMoveImage(int test_move_image) {
         setContentView(test_move_image);
+
+        /**
+         * 帧动画使用java
+         */
+        final AnimationDrawable animationDrawable = new AnimationDrawable();
+        for (int i = 1; i <= 3; i++) {
+            int identifier = getResources().getIdentifier("play" + i, "drawable", getPackageName());
+            Drawable drawable = getResources().getDrawable(identifier);
+            animationDrawable.addFrame(drawable, 500);
+        }
+
         final TesMoveImageView moveImageView = (TesMoveImageView) findViewById(R.id.test_move_image);
         findViewById(R.id.btn_bg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 moveImageView.setBackgroundColor(R.color.red);
+
+                ImageView ivJava = findViewById(R.id.iv_sound_paly_java);
+                ivJava.setImageDrawable(animationDrawable);
+                animationDrawable.setOneShot(false);
+                animationDrawable.start();
             }
         });
+
+        /**
+         * 帧动画使用xml
+         */
+        ImageView imageView = (ImageView) findViewById(R.id.iv_sound_play);
+//        imageView.setImageResource(R.drawable.drawable_test_sound_play);
+//        AnimationDrawable drawable = (AnimationDrawable) imageView.getDrawable();
+//        drawable.start();
+        imageView.setBackground(getResources().getDrawable(R.drawable.drawable_test_sound_play));
+        AnimationDrawable background = (AnimationDrawable) imageView.getBackground();
+        background.start();
     }
 
     private void fakeBold() {

@@ -9,6 +9,18 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher" />
 
+    <ImageView
+        android:id="@+id/iv_sound_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/iv_sound_paly_java"
+        android:layout_above="@id/iv_sound_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/btn_bg"
         android:layout_width="wrap_content"
