@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fengxing.mobile.commonutils.R;
+import com.fengxing.mobile.commonutils.animation.TestCustomAnimation;
 import com.fengxing.mobile.commonutils.utils.FakeBoldSpan;
 import com.fengxing.mobile.commonutils.utils.Spanny;
 
@@ -53,7 +54,17 @@ public class TestDeleteListActivity extends AppCompatActivity {
 
         //fakeBold();
 
-        testMoveImage(R.layout.test_move_image);
+        //testMoveImage(R.layout.test_move_image);
+
+        testCustomAnimation();
+    }
+
+    private void testCustomAnimation() {
+        setContentView(R.layout.test_custom_animation);
+        View view = findViewById(R.id.tv_name_text);
+        TestCustomAnimation testCustomAnimation = new TestCustomAnimation(view.getWidth() / 2, view.getHeight() / 2, 5000);
+
+        view.startAnimation(testCustomAnimation);
     }
 
     private void testMoveImage(int test_move_image) {
