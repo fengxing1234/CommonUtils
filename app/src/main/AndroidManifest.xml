@@ -23,6 +23,8 @@
 
         <!--test activity-->
         <activity android:name=".test.TestDeleteListActivity" />
+
+        <activity android:name=".animation.TestAnimActivity" />
     </application>
 
 </manifest>
