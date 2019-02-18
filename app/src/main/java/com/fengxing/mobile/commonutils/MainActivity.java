@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.fengxing.mobile.commonutils.animation.TestAnimActivity;
+import com.fengxing.mobile.commonutils.animation.tween.TestTweenAnimActivity;
 import com.fengxing.mobile.commonutils.test.TestDeleteListActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_right_movie).setOnClickListener(this);
         findViewById(R.id.btn_new_page).setOnClickListener(this);
         findViewById(R.id.btn_test_anim).setOnClickListener(this);
+        findViewById(R.id.btn_test_tween_anim).setOnClickListener(this);
         tvResult = (TextView) findViewById(R.id.tv_result);
 
         ConstraintLayout rootView = (ConstraintLayout) findViewById(R.id.main_container);
@@ -59,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_test_anim:
                 startActivity(new Intent(this, TestAnimActivity.class));
+                break;
+
+            case R.id.btn_test_tween_anim:
+                startActivity(new Intent(this, TestTweenAnimActivity.class));
                 break;
         }
     }

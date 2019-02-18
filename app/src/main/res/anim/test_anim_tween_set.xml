@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+// 采用< Set/>标签
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+// 组合动画同样具备公共属性
+    android:duration="3000" // 动画持续时间（ms），必须设置，动画才有效果
+    android:startOffset ="1000" // 动画延迟开始时间（ms）
+    android:fillBefore = “true” // 动画播放完后，视图是否会停留在动画开始的状态，默认为true
+    android:fillAfter = “false” // 动画播放完后，视图是否会停留在动画结束的状态，优先于fillBefore值，默认为false
+    android:fillEnabled= “true” // 是否应用fillBefore值，对fillAfter值无影响，默认为true
+    android:repeatMode= “restart” // 选择重复播放动画模式，restart代表正序重放，reverse代表倒序回放，默认为restart|
+    android:repeatCount = “0” // 重放次数（所以动画的播放次数=重放次数+1），为infinite时无限重复
+    android:interpolator = @[package:]anim/interpolator_resource // 插值器，即影响动画的播放速度,下面会详细讲
+
+// 组合动画独特的属性
+    android:shareinterpolator = “true”
+    // 表示组合动画中的动画是否和集合共享同一个差值器
+    // 如果集合不指定插值器，那么子动画需要单独设置
+
+// 组合动画播放时是全部动画同时开始
+// 如果想不同动画不同时间开始就要使用android:startOffset属性来延迟单个动画播放时间
+
+// 设置旋转动画，语法同单个动画
+    <rotate
+        android:duration="1000"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatMode="restart"
+        android:repeatCount="infinite"
+        />
+
+// 设置平移动画，语法同单个动画
+    <translate
+        android:duration="10000"
+        android:startOffset = “1000”// 延迟该动画播放时间
+        android:fromXDelta="-50%p"
+        android:fromYDelta="0"
+        android:toXDelta="50%p"
+        android:toYDelta="0" />
+
+// 设置透明度动画，语法同单个动画
+    <alpha
+        android:startOffset="7000"
+        android:duration="3000"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0" />
+
+
+// 设置缩放动画，语法同单个动画
+    <scale
+        android:startOffset="4000"
+        android:duration="1000"
+        android:fromXScale="1.0"
+        android:fromYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="0.5"
+        android:toYScale="0.5" />
+// 特别注意：
+// 1. 在组合动画里scale缩放动画设置的repeatCount（重复播放）和fillBefore（播放完后，视图是否会停留在动画开始的状态）是无效的。
+// 2. 所以如果需要重复播放或者回到原位的话需要在set标签里设置
+// 3. 但是由于此处rotate旋转动画里已设置repeatCount为infinite，所以动画不会结束，也就看不到重播和回复原位
+
+</set>
+
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <rotate
+        android:duration="1000"
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatCount="infinite"
+        android:repeatMode="restart"
+        android:toDegrees="360" />
+
+    <translate
+        android:duration="10000"
+        android:fromXDelta="-50%p"
+        android:fromYDelta="0"
+        android:startOffset="1000"
+        android:toXDelta="50%p"
+        android:toYDelta="0" />
+    <scale
+        android:duration="1000"
+        android:fromXScale="1"
+        android:fromYScale="1"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:startOffset="4000"
+        android:toXScale="0.5"
+        android:toYScale="0.5" />
+
+    <alpha
+        android:duration="3000"
+        android:fromAlpha="1.0"
+        android:startOffset="7000"
+        android:toAlpha="0.0" />
+
+
+</set>

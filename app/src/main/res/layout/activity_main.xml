@@ -50,9 +50,16 @@
 
         <Button
             android:id="@+id/btn_test_anim"
-            android:text="动画"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="动画" />
+
+        <Button
+            android:id="@+id/btn_test_tween_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="补间动画" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -25,6 +25,8 @@
         <activity android:name=".test.TestDeleteListActivity" />
 
         <activity android:name=".animation.TestAnimActivity" />
+
+        <activity android:name=".animation.tween.TestTweenAnimActivity" />
     </application>
 
 </manifest>

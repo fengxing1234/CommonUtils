@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--补间动画之平移动画-->
+
+<!--
+
+    // 以下参数是4种动画效果的公共属性,即都有的属性
+    android:duration="3000" // 动画持续时间（ms），必须设置，动画才有效果
+    android:startOffset ="1000" // 动画延迟开始时间（ms）
+    android:fillBefore = “true” // 动画播放完后，视图是否会停留在动画开始的状态，默认为true
+    android:fillAfter = “false” // 动画播放完后，视图是否会停留在动画结束的状态，优先于fillBefore值，默认为false
+    android:fillEnabled= “true” // 是否应用fillBefore值，对fillAfter值无影响，默认为true
+    android:repeatMode= “restart” // 选择重复播放动画模式，restart代表正序重放，reverse代表倒序回放，默认为restart|
+    android:repeatCount = “0” // 重放次数（所以动画的播放次数=重放次数+1），为infinite时无限重复
+    android:interpolator = @[package:]anim/interpolator_resource // 插值器，即影响动画的播放速度,下面会详细讲
+
+    // 以下参数是平移动画特有的属性
+    android:fromXDelta="0" // 视图在水平方向x 移动的起始值
+    android:toXDelta="500" // 视图在水平方向x 移动的结束值
+
+    android:fromYDelta="0" // 视图在竖直方向y 移动的起始值
+    android:toYDelta="500" // 视图在竖直方向y 移动的结束值
+
+-->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="5000"
+    android:fillAfter="false"
+    android:fillBefore="true"
+    android:fillEnabled="true"
+    android:fromXDelta="0"
+    android:fromYDelta="0"
+    android:repeatCount="2"
+    android:repeatMode="restart"
+    android:startOffset="1000"
+    android:toXDelta="500"
+    android:toYDelta="500">
+
+</translate>
