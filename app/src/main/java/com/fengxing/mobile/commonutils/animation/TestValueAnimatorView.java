@@ -21,6 +21,7 @@ public class TestValueAnimatorView extends View {
     private float RADIUS = 70f;
     private int mBottom;
     private int mRight;
+    private String color;
 
     public TestValueAnimatorView(Context context) {
         this(context, null);
@@ -41,6 +42,20 @@ public class TestValueAnimatorView extends View {
         mPaint.setAntiAlias(true);
     }
 
+    public void setColor(String color) {
+        this.color = color;
+        mPaint.setColor(Color.parseColor(color));
+        // 将画笔的颜色设置成方法参数传入的颜色
+        invalidate();
+        // 调用了invalidate()方法,即画笔颜色每次改变都会刷新视图，然后调用onDraw()方法重新绘制圆
+        // 而因为每次调用onDraw()方法时画笔的颜色都会改变,所以圆的颜色也会改变
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -55,28 +70,29 @@ public class TestValueAnimatorView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+        canvas.drawCircle(500, 500, RADIUS, mPaint);
 
-        if (mCurrentPoint == null) {
-            mCurrentPoint = new TestValueAnimatorOfObjectPointData(RADIUS, RADIUS);
-            canvas.drawCircle(mCurrentPoint.startX, mCurrentPoint.startY, RADIUS, mPaint);
 
-            TestValueAnimatorOfObjectPointData endPoint = new TestValueAnimatorOfObjectPointData(mRight - RADIUS, mBottom - RADIUS);
-            ValueAnimator valueAnimator = ValueAnimator.ofObject(new TestValueAnimatorOfObject(), mCurrentPoint, endPoint);
-            valueAnimator.setDuration(5000);
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    mCurrentPoint = (TestValueAnimatorOfObjectPointData) animation.getAnimatedValue();
-                    Log.d(TAG, "onAnimationUpdate: " + animation.getAnimatedFraction());
-                    invalidate();
-                }
-            });
-            valueAnimator.start();
-        } else {
-            float startY = mCurrentPoint.startY;
-            float startX = mCurrentPoint.startX;
-            canvas.drawCircle(startX, startY, RADIUS, mPaint);
-        }
+//        if (mCurrentPoint == null) {
+//            mCurrentPoint = new TestValueAnimatorOfObjectPointData(RADIUS, RADIUS);
+//            canvas.drawCircle(mCurrentPoint.startX, mCurrentPoint.startY, RADIUS, mPaint);
+//
+//            TestValueAnimatorOfObjectPointData endPoint = new TestValueAnimatorOfObjectPointData(mRight - RADIUS, mBottom - RADIUS);
+//            ValueAnimator valueAnimator = ValueAnimator.ofObject(new TestValueAnimatorOfObject(), mCurrentPoint, endPoint);
+//            valueAnimator.setDuration(5000);
+//            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//                @Override
+//                public void onAnimationUpdate(ValueAnimator animation) {
+//                    mCurrentPoint = (TestValueAnimatorOfObjectPointData) animation.getAnimatedValue();
+//                    Log.d(TAG, "onAnimationUpdate: " + animation.getAnimatedFraction());
+//                    invalidate();
+//                }
+//            });
+//            valueAnimator.start();
+//        } else {
+//            float startY = mCurrentPoint.startY;
+//            float startX = mCurrentPoint.startX;
+//            canvas.drawCircle(startX, startY, RADIUS, mPaint);
+//        }
     }
 }
