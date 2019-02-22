@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fengxing.mobile.commonutils">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".FXApplication"
         android:allowBackup="true"
@@ -27,6 +31,8 @@
         <activity android:name=".animation.TestAnimActivity" />
 
         <activity android:name=".animation.tween.TestTweenAnimActivity" />
+
+        <activity android:name=".TextPermissionActivity" />
     </application>
 
 </manifest>
