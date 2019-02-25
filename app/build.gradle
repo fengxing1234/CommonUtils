@@ -42,6 +42,8 @@ dependencies {
     implementation project(':plugin_common')
 }
 
+
+// 自定义apk名
 android.applicationVariants.all {
     variant ->
         variant.outputs.all {
