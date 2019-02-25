@@ -1,6 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('../debug.keystore')
+            storePassword 'android'
+        }
+        release {
+            keyAlias 'fengxing123'
+            keyPassword 'fengxing123'
+            storeFile file('../common_utils_ket_store')
+            storePassword 'fengxing123'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.fengxing.mobile.commonutils"
@@ -25,6 +39,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-
     implementation project(':plugin_common')
+}
+
+android.applicationVariants.all {
+    variant ->
+        variant.outputs.all {
+            outputFileName = "Common_Utils_V${variant.versionName}_${variant.name}.apk"
+        }
 }
