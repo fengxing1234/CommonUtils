@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.im.picc.plugin.common.utils.LogUtil;
 
@@ -33,7 +34,11 @@ public class PermissionActivity extends AppCompatActivity {
 
                 } else {
                     if (PermissionHelp.somePermissionPermanentlyDenied(this, permissions)) {
+                        Log.d(TAG, "onRequestPermissionsResult: 设置界面");
+                        Log.d(TAG, "onRequestPermissionsResult: 永久拒绝");
                         PermissionHelp.goSettings2Permissions(this, "跳转设置界面", "去设置", 800);
+                    } else {
+                        Log.d(TAG, "onRequestPermissionsResult: 拒绝权限");
                     }
                 }
                 break;

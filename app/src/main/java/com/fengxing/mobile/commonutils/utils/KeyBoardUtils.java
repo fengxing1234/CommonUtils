@@ -71,4 +71,29 @@ public class KeyBoardUtils {
         return imm.isActive();//isOpen若返回true，则表示输入法打开
     }
 
+
+    /**
+     * 隐藏键盘
+     *
+     * @return
+     */
+    boolean hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (inputMethodManager != null) {
+            View localView = activity.getCurrentFocus();
+            if (localView != null && localView.getWindowToken() != null) {
+                IBinder windowToken = localView.getWindowToken();
+                boolean result = false;
+                try {
+                    result = inputMethodManager.hideSoftInputFromWindow(windowToken, 0);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return result;
+            }
+        }
+
+        return false;
+    }
+
 }
