@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.fengxing.mobile.commonutils.animation.TestAnimActivity;
 import com.fengxing.mobile.commonutils.animation.tween.TestTweenAnimActivity;
 import com.fengxing.mobile.commonutils.test.TestDeleteListActivity;
+import com.im.picc.plugin.common.CommonLauncherUi;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 String s3 = Integer.toBinaryString(i1);
                 tvResult.setText(s);
+                startActivity(new Intent(this, CommonLauncherUi.class));
                 break;
             case R.id.btn_new_page:
                 startActivity(new Intent(this, TestDeleteListActivity.class));
