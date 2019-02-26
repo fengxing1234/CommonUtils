@@ -66,6 +66,12 @@
             android:layout_height="wrap_content"
             android:text="权限请求" />
 
+        <Button
+            android:id="@+id/btn_test_status_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="状态栏" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

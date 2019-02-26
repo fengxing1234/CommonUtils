@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.fengxing.mobile.commonutils.animation.TestAnimActivity;
 import com.fengxing.mobile.commonutils.animation.tween.TestTweenAnimActivity;
 import com.fengxing.mobile.commonutils.test.TestDeleteListActivity;
+import com.fengxing.mobile.commonutils.test.TestStatusBarTransparentActivity;
 import com.im.picc.plugin.common.CommonLauncherUi;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_test_anim).setOnClickListener(this);
         findViewById(R.id.btn_test_tween_anim).setOnClickListener(this);
         findViewById(R.id.btn_test_permission).setOnClickListener(this);
+        findViewById(R.id.btn_test_status_bar).setOnClickListener(this);
+
 
 
 
@@ -75,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_test_permission:
                 startActivity(new Intent(this, TextPermissionActivity.class));
+                break;
+
+            case R.id.btn_test_status_bar:
+                startActivity(new Intent(this, TestStatusBarTransparentActivity.class));
                 break;
         }
     }
