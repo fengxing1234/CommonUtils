@@ -1,1 +1,1 @@
-include ':app', ':plugin_common'
+include ':app', ':plugin_common', ':plugin_swipe_back'
