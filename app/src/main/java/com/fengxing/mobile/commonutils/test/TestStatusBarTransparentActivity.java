@@ -70,7 +70,10 @@ public class TestStatusBarTransparentActivity extends AppCompatActivity {
 
         //StatusBarTools.transparencyBar(this);
         //StatusBarTools.statusBarTransparent(getWindow());
-        StatusBarTools.setStatusBarColor(getWindow(),color);
+        //StatusBarTools.setStatusBarColor(getWindow(),color);
+
+        //StatusBarTools.setColor(this,getResources().getColor(R.color.blueviolet));
+        StatusBarTools.transparentStatusBar(this);
     }
 
     @Override
