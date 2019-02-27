@@ -3,7 +3,6 @@ package com.fengxing.mobile.commonutils.test;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +20,6 @@ import com.fengxing.mobile.commonutils.animation.TestCustomAnimation;
 import com.fengxing.mobile.commonutils.utils.FakeBoldSpan;
 import com.fengxing.mobile.commonutils.utils.Spanny;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 

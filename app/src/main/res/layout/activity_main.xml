@@ -42,35 +42,73 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="14dp"
         android:layout_marginRight="14dp"
         android:layout_marginTop="20dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/btn_right_movie">
 
-        <Button
-            android:id="@+id/btn_test_anim"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="动画" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_test_tween_anim"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="补间动画" />
+            <Button
+                android:id="@+id/btn_test_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="动画" />
 
-        <Button
-            android:id="@+id/btn_test_permission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="权限请求" />
+            <Button
+                android:id="@+id/btn_test_tween_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="补间" />
 
-        <Button
-            android:id="@+id/btn_test_status_bar"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btn_test_permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="权限" />
+
+            <Button
+                android:id="@+id/btn_test_status_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="状态栏" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="状态栏" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_view_drag_helper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="拖拽" />
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="补间" />
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="权限" />
+
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="状态栏" />
+        </LinearLayout>
+
 
     </LinearLayout>
 

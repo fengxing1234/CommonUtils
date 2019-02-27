@@ -36,6 +36,9 @@
         <activity
             android:name=".test.TestStatusBarTransparentActivity"
             android:theme="@style/Common_Theme_NoActionBase" />
+
+        <activity android:name=".test.TestViewDragHelperActivity" />
+
     </application>
 
 </manifest>

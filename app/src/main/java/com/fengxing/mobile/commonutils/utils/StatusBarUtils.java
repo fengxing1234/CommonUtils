@@ -1,7 +1,5 @@
 package com.fengxing.mobile.commonutils.utils;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -9,7 +7,6 @@ import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 
 /**

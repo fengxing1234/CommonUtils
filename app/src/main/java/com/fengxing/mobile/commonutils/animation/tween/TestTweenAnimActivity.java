@@ -3,20 +3,16 @@ package com.fengxing.mobile.commonutils.animation.tween;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
-import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import com.fengxing.mobile.commonutils.R;
-
-import java.lang.annotation.AnnotationTypeMismatchException;
 
 public class TestTweenAnimActivity extends AppCompatActivity {
 

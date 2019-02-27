@@ -3,8 +3,8 @@ package com.fengxing.mobile.commonutils;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.im.picc.plugin.common.permission.PermissionActivity;
-import com.im.picc.plugin.common.permission.PermissionHelp;
+import com.fengxing.mobile.plugin.common.permission.PermissionActivity;
+import com.fengxing.mobile.plugin.common.permission.PermissionHelp;
 
 public class TextPermissionActivity extends PermissionActivity {
 

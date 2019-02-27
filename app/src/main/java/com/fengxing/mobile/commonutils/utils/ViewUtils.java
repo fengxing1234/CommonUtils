@@ -6,8 +6,6 @@ import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
 
-import java.lang.invoke.VolatileCallSite;
-
 /**
  * 相当于父控件
  * getTop()

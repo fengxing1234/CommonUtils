@@ -7,17 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-
 
 import com.fengxing.mobile.commonutils.R;
-import com.im.picc.plugin.common.utils.BuildVersionTool;
-import com.im.picc.plugin.common.utils.ColorTools;
-import com.im.picc.plugin.common.utils.StatusBarTools;
+import com.fengxing.mobile.plugin.common.utils.BuildVersionTool;
+import com.fengxing.mobile.plugin.common.utils.StatusBarTools;
 
 
 public class TestStatusBarTransparentActivity extends AppCompatActivity {

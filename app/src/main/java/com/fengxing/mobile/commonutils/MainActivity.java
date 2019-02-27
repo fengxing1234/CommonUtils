@@ -1,12 +1,10 @@
 package com.fengxing.mobile.commonutils;
 
-import android.accounts.AbstractAccountAuthenticator;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +12,8 @@ import com.fengxing.mobile.commonutils.animation.TestAnimActivity;
 import com.fengxing.mobile.commonutils.animation.tween.TestTweenAnimActivity;
 import com.fengxing.mobile.commonutils.test.TestDeleteListActivity;
 import com.fengxing.mobile.commonutils.test.TestStatusBarTransparentActivity;
-import com.im.picc.plugin.common.CommonLauncherUi;
+import com.fengxing.mobile.commonutils.test.TestViewDragHelperActivity;
+import com.fengxing.mobile.plugin.common.CommonLauncherUi;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_test_tween_anim).setOnClickListener(this);
         findViewById(R.id.btn_test_permission).setOnClickListener(this);
         findViewById(R.id.btn_test_status_bar).setOnClickListener(this);
+
+
+        findViewById(R.id.btn_view_drag_helper).setOnClickListener(this);
 
 
 
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_test_status_bar:
                 startActivity(new Intent(this, TestStatusBarTransparentActivity.class));
+                break;
+            case R.id.btn_view_drag_helper:
+                startActivity(new Intent(this, TestViewDragHelperActivity.class));
                 break;
         }
     }

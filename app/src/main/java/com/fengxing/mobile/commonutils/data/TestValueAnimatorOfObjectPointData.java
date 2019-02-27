@@ -1,7 +1,5 @@
 package com.fengxing.mobile.commonutils.data;
 
-import android.support.v4.content.Loader;
-
 public class TestValueAnimatorOfObjectPointData {
 
 

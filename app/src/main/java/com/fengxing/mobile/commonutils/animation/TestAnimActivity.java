@@ -1,10 +1,8 @@
 package com.fengxing.mobile.commonutils.animation;
 
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.PluralsRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
