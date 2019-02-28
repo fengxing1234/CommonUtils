@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.fengxing.mobile.commonutils.test.TesMoveImageView
+    <com.fengxing.mobile.commonutils.test.ui.TesMoveImageView
         android:id="@+id/test_move_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

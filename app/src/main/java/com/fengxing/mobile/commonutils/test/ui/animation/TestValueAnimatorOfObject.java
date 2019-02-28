@@ -1,9 +1,9 @@
-package com.fengxing.mobile.commonutils.animation;
+package com.fengxing.mobile.commonutils.test.ui.animation;
 
 import android.animation.TypeEvaluator;
 import android.util.Log;
 
-import com.fengxing.mobile.commonutils.data.TestValueAnimatorOfObjectPointData;
+import com.fengxing.mobile.commonutils.test.data.TestValueAnimatorOfObjectPointData;
 
 public class TestValueAnimatorOfObject implements TypeEvaluator {
 

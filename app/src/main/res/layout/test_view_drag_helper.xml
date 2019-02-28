@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.fengxing.mobile.commonutils.test.TestViewDragHelperView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.fengxing.mobile.commonutils.test.ui.viewdraghelp.TestViewDragHelperView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".test.activity.TestViewDragHelperActivity"
+    android:orientation="vertical">
 
-    <TextView
+    <Button
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@color/aquamarine" />
-</com.fengxing.mobile.commonutils.test.TestViewDragHelperView>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/chartreuse" />
+</com.fengxing.mobile.commonutils.test.ui.viewdraghelp.TestViewDragHelperView>

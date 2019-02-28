@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.animation;
+package com.fengxing.mobile.commonutils.test.activity;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.fengxing.mobile.commonutils.R;
+import com.fengxing.mobile.commonutils.test.ui.animation.TestObjectColorEvaluator;
+import com.fengxing.mobile.commonutils.test.ui.TestValueAnimatorView;
 
 public class TestAnimActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.animation.tween;
+package com.fengxing.mobile.commonutils.test.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

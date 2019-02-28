@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.animation;
+package com.fengxing.mobile.commonutils.test.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,7 +8,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.fengxing.mobile.commonutils.data.TestValueAnimatorOfObjectPointData;
+import com.fengxing.mobile.commonutils.test.data.TestValueAnimatorOfObjectPointData;
+
 
 public class TestValueAnimatorView extends View {
 

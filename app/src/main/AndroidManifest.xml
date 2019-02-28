@@ -26,18 +26,18 @@
 
 
         <!--test activity-->
-        <activity android:name=".test.TestDeleteListActivity" />
+        <activity android:name=".test.activity.TestDeleteListActivity" />
 
-        <activity android:name=".animation.TestAnimActivity" />
+        <activity android:name=".test.activity.TestAnimActivity" />
 
-        <activity android:name=".animation.tween.TestTweenAnimActivity" />
+        <activity android:name=".test.activity.TestTweenAnimActivity" />
 
         <activity android:name=".TextPermissionActivity" />
         <activity
-            android:name=".test.TestStatusBarTransparentActivity"
+            android:name=".test.activity.TestStatusBarTransparentActivity"
             android:theme="@style/Common_Theme_NoActionBase" />
 
-        <activity android:name=".test.TestViewDragHelperActivity" />
+        <activity android:name=".test.activity.TestViewDragHelperActivity" />
 
     </application>
 

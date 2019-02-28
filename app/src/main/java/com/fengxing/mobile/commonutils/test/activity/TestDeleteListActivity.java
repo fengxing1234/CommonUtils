@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.test;
+package com.fengxing.mobile.commonutils.test.activity;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,7 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fengxing.mobile.commonutils.R;
-import com.fengxing.mobile.commonutils.animation.TestCustomAnimation;
+import com.fengxing.mobile.commonutils.test.ui.animation.tween.TestCustomAnimation;
+import com.fengxing.mobile.commonutils.test.ui.DeleteListView;
+import com.fengxing.mobile.commonutils.test.ui.TesMoveImageView;
 import com.fengxing.mobile.commonutils.utils.FakeBoldSpan;
 import com.fengxing.mobile.commonutils.utils.Spanny;
 

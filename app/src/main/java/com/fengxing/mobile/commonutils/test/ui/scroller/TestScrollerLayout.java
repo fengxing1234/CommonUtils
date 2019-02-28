@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.test;
+package com.fengxing.mobile.commonutils.test.ui.scroller;
 
 import android.content.Context;
 import android.util.AttributeSet;

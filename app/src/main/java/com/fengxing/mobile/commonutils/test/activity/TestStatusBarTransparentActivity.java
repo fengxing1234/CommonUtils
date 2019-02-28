@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.test;
+package com.fengxing.mobile.commonutils.test.activity;
 
 
 import android.graphics.Color;

@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.data;
+package com.fengxing.mobile.commonutils.test.data;
 
 public class TestValueAnimatorOfObjectPointData {
 

@@ -8,11 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.fengxing.mobile.commonutils.animation.TestAnimActivity;
-import com.fengxing.mobile.commonutils.animation.tween.TestTweenAnimActivity;
-import com.fengxing.mobile.commonutils.test.TestDeleteListActivity;
-import com.fengxing.mobile.commonutils.test.TestStatusBarTransparentActivity;
-import com.fengxing.mobile.commonutils.test.TestViewDragHelperActivity;
+
+import com.fengxing.mobile.commonutils.test.activity.TestAnimActivity;
+import com.fengxing.mobile.commonutils.test.activity.TestDeleteListActivity;
+import com.fengxing.mobile.commonutils.test.activity.TestStatusBarTransparentActivity;
+import com.fengxing.mobile.commonutils.test.activity.TestTweenAnimActivity;
+import com.fengxing.mobile.commonutils.test.activity.TestViewDragHelperActivity;
 import com.fengxing.mobile.plugin.common.CommonLauncherUi;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {

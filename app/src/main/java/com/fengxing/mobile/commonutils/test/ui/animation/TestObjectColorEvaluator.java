@@ -1,4 +1,4 @@
-package com.fengxing.mobile.commonutils.animation;
+package com.fengxing.mobile.commonutils.test.ui.animation;
 
 import android.animation.TypeEvaluator;
 
