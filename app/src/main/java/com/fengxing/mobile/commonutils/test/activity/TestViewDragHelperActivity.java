@@ -15,5 +15,7 @@ public class TestViewDragHelperActivity extends AppCompatActivity {
         setContentView(R.layout.test_view_drag_helper);
 
         //setContentView(R.layout.test_bottom_menu_activity);
+
+        setContentView(R.layout.test_custom_drag_help);
     }
 }

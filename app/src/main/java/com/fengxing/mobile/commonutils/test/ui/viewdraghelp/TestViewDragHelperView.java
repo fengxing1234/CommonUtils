@@ -53,20 +53,17 @@ import android.widget.LinearLayout;
  原文：https://blog.csdn.net/lmj623565791/article/details/46858663
  版权声明：本文为博主原创文章，转载请附上博文链接！
  */
-import android.content.Context;
-import android.support.annotation.Nullable;
-
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.fengxing.mobile.plugin.swipe_back.ViewDragHelper;
 
 
 /**
  * ViewDragHelper使用练习
+ *
+ * 将 child 安置到坐标 (finalLeft,finalTop) 的位置。
+   settleCapturedViewAt(int finalLeft, int finalTop)
+
+
  */
 public class TestViewDragHelperView extends LinearLayout {
 
@@ -88,17 +85,26 @@ public class TestViewDragHelperView extends LinearLayout {
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
     }
 
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_CANCEL && ev.getAction() == MotionEvent.ACTION_UP) {
             mViewDragHelper.cancel();
             return false;
         }
+        /**
+         * 是否应该拦截 children 的触摸事件，
+         * 只有拦截了 ViewDragHelper 才能进行后续的动作
+         */
         return mViewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        /**
+         * 处理 ViewGroup 中传递过来的触摸事件序列
+         *在 ViewGroup 中的 onTouchEvent() 方法中处理
+         */
         mViewDragHelper.processTouchEvent(event);
         return true;
     }
