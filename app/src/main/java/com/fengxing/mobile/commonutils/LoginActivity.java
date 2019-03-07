@@ -77,39 +77,4 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-
-    private void getKeyboardHeight(final View root, final View scrollView) {
-        //注册布局变化监听
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                int screenHeight = root.getRootView().getHeight();
-                //判断窗口可见区域大小
-                Rect r = new Rect();
-                getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
-                //如果屏幕高度和Window可见区域高度差值大于整个屏幕高度的1/3，则表示软键盘显示中，否则软键盘为隐藏状态。
-                int heightDifference = screenHeight - (r.bottom - r.top);
-
-                int rootInvisibleHeight = screenHeight - r.bottom;
-
-                boolean isKeyboardShowing = heightDifference > screenHeight / 3;
-                if (isKeyboardShowing) {
-                    int[] location = new int[2];
-                    scrollView.getLocationInWindow(location);
-                    //获取root在窗体的不可视区域高度(被其他View遮挡的区域高度)
-                    int scrollHeight = (location[1] + scrollView.getHeight()) - rootInvisibleHeight;
-                    root.scrollTo(0, scrollHeight);
-                } else {
-                    root.scrollTo(0, 0);
-                }
-                //移除布局变化监听
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    getWindow().getDecorView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                } else {
-                    getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                }
-            }
-        });
-    }
 }
