@@ -59,11 +59,20 @@ import com.fengxing.mobile.plugin.swipe_back.ViewDragHelper;
 
 /**
  * ViewDragHelper使用练习
- *
+ * <p>
  * 将 child 安置到坐标 (finalLeft,finalTop) 的位置。
-   settleCapturedViewAt(int finalLeft, int finalTop)
-
-
+ * settleCapturedViewAt(int finalLeft, int finalTop)
+ * <p>
+ * mDragHelper.isEdgeTouched(mEdgeFlag, i)
+ * 检查具有指定ID的指针最初是否触摸了指定的任何边缘。 如果当前没有当前活动的手势或者当前没有指定ID的指针，则此方法将返回false。
+ * <p>
+ * mDragHelper.checkTouchSlop(ViewDragHelper.DIRECTION_VERTICAL, i)
+ * 检查当前手势中跟踪的指定指针是否超过了所需的斜率阈值。
+ * 这个方法主要就是检查手指移动的距离有没有超过触发处理移动事件的最短距离（mTouchSlop）了，
+ * 注意dx和dy指的是当前触摸点到ACTION_DOWN触摸到的点的距离。
+ * 这里先检查Callback的getViewHorizontalDragRange(child)和getViewVerticalDragRange(child)是否大于0，
+ * 如果想让某个View在某个方向上滑动，就要在那个方向对应的方法里返回大于0的数。
+ * 否则在processTouchEvent()的ACTION_MOVE部分就不会调用tryCaptureViewForDrag()来捕获当前触摸到的View了，拖动也就没办法进行了。
  */
 public class TestViewDragHelperView extends LinearLayout {
 
@@ -294,6 +303,8 @@ public class TestViewDragHelperView extends LinearLayout {
 
         /**
          * 当captureview的位置发生改变时回调
+         * 该方法在child（需要捕捉的View）位置改变时执行，参数left（top）跟之前介绍方法中含义相同，
+         * 为child最新的left（top）位置，而dx（dy）是child相较于上一次移动时水平（垂直）方向上改变的距离。
          *
          * @param changedView View whose position changed
          * @param left        New X coordinate of the left edge of the view

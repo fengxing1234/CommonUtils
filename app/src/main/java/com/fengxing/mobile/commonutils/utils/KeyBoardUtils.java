@@ -2,8 +2,10 @@ package com.fengxing.mobile.commonutils.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.IBinder;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 
 public class KeyBoardUtils {
@@ -94,6 +96,33 @@ public class KeyBoardUtils {
         }
 
         return false;
+    }
+
+    /**
+     * 解决EditText登录界面遮挡布局问题
+     *
+     * @param root
+     * @param scrollView
+     */
+    private void controlKeyboardLayout(final View root, final View scrollView) {
+        root.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect rect = new Rect();
+                //获取根布局显示区域
+                root.getWindowVisibleDisplayFrame(rect);
+                //获取root在窗体的不可视区域高度(被其他View遮挡的区域高度)
+                int rootInvisibleHeight = root.getRootView().getHeight() - rect.bottom;
+                if (rootInvisibleHeight > 300) {// 键盘显示
+                    int[] location = new int[2];
+                    scrollView.getLocationInWindow(location);
+                    int scrollHeight = (location[1] + scrollView.getHeight()) - rootInvisibleHeight;
+                    root.scrollTo(0, scrollHeight);
+                } else {//键盘隐藏
+                    root.scrollTo(0, 0);
+                }
+            }
+        });
     }
 
 }

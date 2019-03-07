@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="loginCustomProgressBar" parent="@android:style/Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/login_load_progressbar</item>
+        <item name="android:indeterminateDuration">1500</item>
+    </style>
 </resources>
