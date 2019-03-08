@@ -1,14 +1,172 @@
 package com.fengxing.mobile.commonutils.utils;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.IBinder;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 
 public class KeyBoardUtils {
+
+    private static int contentViewInvisibleHeight;
+    private static OnSoftInputChangedListener onSoftInputChangedListener;
+    private static ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener;
+
+    public interface OnSoftInputChangedListener {
+        void onSoftInputChanged(int height);
+    }
+
+
+    /**
+     * 监听根布局高度是否发生变换
+     *
+     * @param activity
+     * @param listener
+     */
+    public static void registerSoftInputChangedListener(final Activity activity, final OnSoftInputChangedListener listener) {
+        int flags = activity.getWindow().getAttributes().flags;
+        if ((flags & WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS) != 0) {
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+        View contentView = activity.findViewById(android.R.id.content);
+        onSoftInputChangedListener = listener;
+        contentViewInvisibleHeight = getContentViewInvisibleHeight(activity);
+        onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (onSoftInputChangedListener != null) {
+                    int height = getContentViewInvisibleHeight(activity);
+                    if (contentViewInvisibleHeight != height) {
+                        onSoftInputChangedListener.onSoftInputChanged(height);
+                        contentViewInvisibleHeight = height;
+                    }
+                }
+            }
+        };
+        contentView.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
+    }
+
+    /**
+     * 取消监听
+     *
+     * @param activity
+     */
+    public static void unregisterSoftInputChangedListener(Activity activity) {
+        View view = activity.findViewById(android.R.id.content);
+        view.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
+        onGlobalLayoutListener = null;
+        onSoftInputChangedListener = null;
+    }
+
+    /**
+     * 获取布局被遮挡部分的高度
+     *
+     * @param activity
+     * @return
+     */
+    public static int getContentViewInvisibleHeight(Activity activity) {
+        View contentView = activity.findViewById(android.R.id.content);
+        Rect rect = new Rect();
+        contentView.getWindowVisibleDisplayFrame(rect);
+        return contentView.getHeight() - rect.bottom;
+    }
+
+    /**
+     * 获取rootview的高度
+     *
+     * @param activity
+     * @return
+     */
+    public static int getRootViewHeight(Activity activity) {
+        View contentView = activity.findViewById(android.R.id.content);// 全屏模式下：直接返回r.bottom，r.top其实是状态栏的高度
+        Rect rect = new Rect();
+        contentView.getWindowVisibleDisplayFrame(rect);
+        return rect.bottom - rect.top;
+    }
+
+
+    /**
+     * 判断是否显示软键盘
+     *
+     * @param activity
+     * @return
+     */
+    public static boolean isSoftInputVisible(Activity activity) {
+        return isSoftInputVisible(activity, 200);
+    }
+
+    /**
+     * 判断是否显示软键盘
+     *
+     * @param activity
+     * @param minSoftInputHeight
+     * @return
+     */
+    public static boolean isSoftInputVisible(Activity activity, int minSoftInputHeight) {
+        return getContentViewInvisibleHeight(activity) > minSoftInputHeight;
+    }
+
+    /**
+     * 滑动
+     *
+     * @param activity
+     * @param view
+     */
+    public static void scrollView(final Activity activity, final View view) {
+        final ViewWrapper viewWrapper = new ViewWrapper(view);
+        registerSoftInputChangedListener(activity, new OnSoftInputChangedListener() {
+
+            private int scroll;
+
+            @Override
+            public void onSoftInputChanged(int height) {
+                if (isSoftInputVisible(activity)) {
+                    scroll = getContentViewInvisibleHeight(activity);
+                    if (scroll > 0) {
+                        ObjectAnimator topMarginAnimator = ObjectAnimator.ofInt(viewWrapper, "topMargin", 0, -scroll);
+                        topMarginAnimator.setDuration(200).start();
+                    }
+                } else {
+                    if (scroll > 0) {
+                        ObjectAnimator topMarginAnimator = ObjectAnimator.ofInt(viewWrapper, "topMargin", -scroll, 0);
+                        topMarginAnimator.setDuration(200).start();
+                    }
+
+                }
+            }
+        });
+    }
+
+    public static class ViewWrapper {
+
+        private View mTarget;
+        private final FrameLayout.LayoutParams layoutParams;
+
+        public ViewWrapper(View target) {
+            mTarget = target;
+            layoutParams = (FrameLayout.LayoutParams) mTarget.getLayoutParams();
+        }
+
+        public void setTopMargin(int topMargin) {
+            setTopMargin(0, topMargin, 0, 0);
+        }
+
+        public void setTopMargin(int left, int top, int right, int bottom) {
+            layoutParams.setMargins(left, top, right, bottom);
+            mTarget.setLayoutParams(layoutParams);
+            mTarget.requestLayout();
+        }
+
+        public int getTopMargin() {
+            return layoutParams.topMargin;
+        }
+    }
+
 
     /**
      * 关闭键盘

@@ -1,26 +1,24 @@
-package com.fengxing.mobile.commonutils;
+package com.fengxing.mobile.commonutils.test;
 
 import android.content.Intent;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.fengxing.mobile.commonutils.test.Login2Activity;
+import com.fengxing.mobile.commonutils.LoginActivity;
+import com.fengxing.mobile.commonutils.MainActivity;
+import com.fengxing.mobile.commonutils.R;
 import com.fengxing.mobile.commonutils.ui.ImageVerifyCodeView;
-import com.fengxing.mobile.commonutils.utils.KeyBoardUtils;
-import com.fengxing.mobile.commonutils.utils.SoftHideKeyBoardUtil;
 import com.fengxing.mobile.plugin.common.utils.StatusBarTools;
 
-public class LoginActivity extends AppCompatActivity {
+public class Login2Activity extends AppCompatActivity {
 
     private EditText et_id;
     private EditText et_pass_word;
@@ -32,10 +30,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_scroll);
         int color = getResources().getColor(R.color.white);
         StatusBarTools.setColorNoTranslucent(this, color);
         StatusBarTools.autoChangeStatusBarTextColor(getWindow(), color);
+        ScrollView scrollView = (ScrollView) findViewById(R.id.scroll_view);
         main_root = (LinearLayout) findViewById(R.id.main_root);
         et_id = (EditText) findViewById(R.id.et_id);
         et_pass_word = (EditText) findViewById(R.id.et_pass_word);
@@ -45,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, Login2Activity.class));
+                startActivity(new Intent(Login2Activity.this, MainActivity.class));
             }
         });
         mImageVerifyCodeView.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 mImageVerifyCodeView.startRefreshCode();
             }
         });
-        //controlKeyboardLayout(main_root, tv_login);
-        KeyBoardUtils.scrollView(this, main_root);
+        controlKeyboardLayout(scrollView, tv_login);
     }
 
     private void controlKeyboardLayout(final View root, final View scrollView) {
