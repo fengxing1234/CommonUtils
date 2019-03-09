@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_spannable"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:text="您有新的查勘任务(车牌号:苏EK423，报案号:RDAH201932010000000648)，请注意查收！"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

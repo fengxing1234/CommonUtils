@@ -41,6 +41,7 @@
             android:theme="@style/Common_Theme_NoActionBase" />
 
         <activity android:name=".test.activity.TestViewDragHelperActivity" />
+        <activity android:name=".test.TestSpannableActivity" />
 
     </application>
 

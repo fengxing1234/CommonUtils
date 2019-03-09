@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, Login2Activity.class));
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
         mImageVerifyCodeView.setOnClickListener(new View.OnClickListener() {

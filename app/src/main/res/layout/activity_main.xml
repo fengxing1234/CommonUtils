@@ -91,10 +91,10 @@
                 android:text="拖拽" />
 
             <Button
-
+                android:id="@+id/btn_spannable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="补间" />
+                android:text="Spannable" />
 
             <Button
 
