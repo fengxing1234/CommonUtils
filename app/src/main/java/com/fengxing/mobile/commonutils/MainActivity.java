@@ -13,6 +13,7 @@ import com.fengxing.mobile.commonutils.test.TestSpannableActivity;
 import com.fengxing.mobile.commonutils.test.activity.TestAnimActivity;
 import com.fengxing.mobile.commonutils.test.activity.TestDeleteListActivity;
 import com.fengxing.mobile.commonutils.test.activity.TestStatusBarTransparentActivity;
+import com.fengxing.mobile.commonutils.test.activity.TestSwipeBackActivity;
 import com.fengxing.mobile.commonutils.test.activity.TestTweenAnimActivity;
 import com.fengxing.mobile.commonutils.test.activity.TestViewDragHelperActivity;
 import com.fengxing.mobile.plugin.common.CommonLauncherUi;
@@ -38,8 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn_view_drag_helper).setOnClickListener(this);
         findViewById(R.id.btn_spannable).setOnClickListener(this);
-
-
+        findViewById(R.id.btn_swipe_back).setOnClickListener(this);
+        //findViewById(R.id.btn_spannable).setOnClickListener(this);
 
 
         tvResult = (TextView) findViewById(R.id.tv_result);
@@ -93,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_spannable:
                 startActivity(new Intent(this, TestSpannableActivity.class));
+                break;
+            case R.id.btn_swipe_back:
+                startActivity(new Intent(this, TestSwipeBackActivity.class));
                 break;
 
         }

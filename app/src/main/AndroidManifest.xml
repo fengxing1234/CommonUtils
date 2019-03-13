@@ -42,6 +42,8 @@
 
         <activity android:name=".test.activity.TestViewDragHelperActivity" />
         <activity android:name=".test.TestSpannableActivity" />
+        <activity android:name=".test.activity.TestSwipeBackActivity" />
+        <activity android:name=".test.activity.TestSwipeBackTwoActivity" />
 
     </application>
 

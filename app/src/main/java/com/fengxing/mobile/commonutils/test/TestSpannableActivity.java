@@ -75,7 +75,8 @@ public class TestSpannableActivity extends AppCompatActivity {
             textView.setText(style);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
-        if (content.startsWith("您有新的") && content.endsWith("，请注意查收！") && content.contains("车牌号") && content.contains("报案号")) {
+        if (content.startsWith("您有新的") && content.endsWith("，请注意查收！")) {
+            String[] s = getArgument(content);
             style.setSpan(new URLSpan("com.picc.mcp.Main2Activity"), 0, content.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             style.setSpan(new ClickableSpan() {
                 @Override
@@ -88,6 +89,14 @@ public class TestSpannableActivity extends AppCompatActivity {
             textView.setText(style);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
+    }
+
+    private String[] getArgument(String content) {
+        int i = content.indexOf("车牌号:");
+        String s = content.substring(i + 4, i + 4 + 6);
+        int i1 = content.indexOf("报案号:");
+        String s1 = content.substring(i1 + 4, i1 + 4 + 6);
+        return new String[]{s, s1};
     }
 
     @NonNull

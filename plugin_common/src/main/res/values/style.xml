@@ -9,6 +9,7 @@
     <style name="Common_Theme_NoActionBase" parent="Base_Common_Theme_NoActionBase">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="Common_Transparent_Status" parent="Common_Theme_NoActionBase">

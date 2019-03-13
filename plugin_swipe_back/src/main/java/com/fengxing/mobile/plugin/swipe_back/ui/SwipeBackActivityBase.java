@@ -6,7 +6,7 @@ public interface SwipeBackActivityBase {
     SwipeBackLayout getSwipeBackLayout();
 
     //设置是否可以滑动返回
-    void setSwiperBackEnable();
+    void setSwipeBackEnable(boolean enable);
 
     //自动滑动返回并关闭Activity
     void scrollToFinishActivity();
