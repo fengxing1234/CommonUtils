@@ -6,9 +6,10 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.fengxing.mobile.commonutils.R;
-import com.fengxing.mobile.plugin.swipe_back.SwipeBackActivity;
+import com.fengxing.mobile.plugin.common.base.BaseActivity;
 
-public class TestSwipeBackActivity extends SwipeBackActivity {
+
+public class TestSwipeBackActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

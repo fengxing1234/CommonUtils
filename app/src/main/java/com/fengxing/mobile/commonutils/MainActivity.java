@@ -17,8 +17,9 @@ import com.fengxing.mobile.commonutils.test.activity.TestSwipeBackActivity;
 import com.fengxing.mobile.commonutils.test.activity.TestTweenAnimActivity;
 import com.fengxing.mobile.commonutils.test.activity.TestViewDragHelperActivity;
 import com.fengxing.mobile.plugin.common.CommonLauncherUi;
+import com.fengxing.mobile.plugin.common.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView tvResult;
     private static final int MODE_MASK = 0x3 << 30;

@@ -25,7 +25,7 @@
         </activity>
         <activity android:name=".test.Login2Activity" />
         <activity android:name=".KeyBoardHideActivity" />
-        <activity android:name=".BaseActivity" />
+        <activity android:name=".MainBaseActivity" />
 
         <activity android:name="MainActivity" />
         <!--test activity-->

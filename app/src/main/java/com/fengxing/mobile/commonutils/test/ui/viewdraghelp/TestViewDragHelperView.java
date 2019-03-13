@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.fengxing.mobile.commonutils.utils.ViewDragHelper;
+
 /**
 
  回调顺序
@@ -54,7 +56,6 @@ import android.widget.LinearLayout;
  版权声明：本文为博主原创文章，转载请附上博文链接！
  */
 
-import com.fengxing.mobile.plugin.swipe_back.ViewDragHelper;
 
 
 /**

@@ -100,7 +100,7 @@ public class SwipeBackLayout extends FrameLayout {
     //滑动的百分比
     private float mScrollPercent;
     //是否开启滑动退出功能
-    private boolean mEnable = true;
+    private boolean mEnable = false;
     //拖拽滑动帮助类
     private ViewDragHelper mDragHelper;
 
@@ -210,7 +210,7 @@ public class SwipeBackLayout extends FrameLayout {
      */
     public void attachToActivity(Activity activity) {
         mActivity = activity;
-        TypedArray a = activity.getTheme().obtainStyledAttributes(new int[]{android.R.attr.background});
+        TypedArray a = activity.getTheme().obtainStyledAttributes(new int[]{android.R.attr.windowBackground});
         int background = a.getResourceId(0, 0);
         a.recycle();
         ViewGroup decorView = (ViewGroup) mActivity.getWindow().getDecorView();
