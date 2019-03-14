@@ -43,7 +43,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':plugin_common')
-    implementation project(':plugin_swipe_back')
+    if (!isModule.toBoolean()) {
+        implementation project(':plugin_swipe_back')
+    }
+
 }
 
 // 自定义apk名

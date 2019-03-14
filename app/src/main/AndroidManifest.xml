@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Common_Theme_NoActionBase">
+        android:theme="@style/AppTheme_NoActionBar">
         <activity
             android:name=".LoginActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
@@ -36,9 +36,7 @@
         <activity android:name=".test.activity.TestTweenAnimActivity" />
 
         <activity android:name=".TextPermissionActivity" />
-        <activity
-            android:name=".test.activity.TestStatusBarTransparentActivity"
-            android:theme="@style/Common_Theme_NoActionBase" />
+        <activity android:name=".test.activity.TestStatusBarTransparentActivity" />
 
         <activity android:name=".test.activity.TestViewDragHelperActivity" />
         <activity android:name=".test.TestSpannableActivity" />
