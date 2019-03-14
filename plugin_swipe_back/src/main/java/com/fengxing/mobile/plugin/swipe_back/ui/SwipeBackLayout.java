@@ -100,7 +100,7 @@ public class SwipeBackLayout extends FrameLayout {
     //滑动的百分比
     private float mScrollPercent;
     //是否开启滑动退出功能
-    private boolean mEnable = false;
+    private boolean mEnable = true;
     //拖拽滑动帮助类
     private ViewDragHelper mDragHelper;
 
